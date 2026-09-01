@@ -1,0 +1,127 @@
+const produtos = [
+    {
+        nome: "PS6",
+        preco: 10000,
+        categoria: "Console"
+    },
+    {
+        nome: "Iphone 17",
+        preco: 15000,
+        categoria: "Celular"
+    },
+    {
+        nome: "RDR3",
+        preco: 600,
+        categoria: "Jogos"
+    },
+    {
+        nome: "Bully",
+        preco: 700,
+        categoria: "Jogos"
+    }
+
+]
+
+const numeros = [1, 24, 38, 75]
+
+const imprimir = function(x) {
+    console.log(x)
+}
+
+const multiplicados = numeros.map(n => n * 2)
+
+console.log("Números: ", numeros)
+console.log("Multiplicados: ", multiplicados)
+
+const even = numeros.filter(n => n % 2 === 0)
+
+console.log("Pares: ", even)
+console.log("Ímpares: ", numeros.filter(n => n % 2 !== 0))
+
+// ----------------------- //
+
+console.log("------ PRODUTOS -----")
+
+produtos.forEach(p => console.log(p))
+
+const produtosCategorias = produtos.map(
+    p => `${p.nome} (${p.categoria})`
+)
+
+produtosCategorias.forEach(p => console.log(p))
+
+// Produtos da Categoria Jogos
+
+console.log("Jogos")
+
+const jogos = produtos.filter(p => p.categoria === "Jogos")
+
+jogos.forEach(p => console.log(p))
+
+// Produtos com preço maior ou igual a 10000
+
+console.log("Produtos com preço >= 10000:")
+
+produtos.forEach(p => {
+    if (p.preco >= 10000) {
+        console.log(p)
+    }
+})
+
+const produtosFiltrados = produtos.filter(p => p.preco >= 10000)
+
+console.log(produtosFiltrados)
+
+// Soma dos números
+
+const soma = numeros.reduce((ac, at) => {
+    return ac + at
+}, 0)
+
+// Maior número
+
+const maior = numeros.reduce((ac, at) => {
+    if (at > ac) {
+        return at
+    } else {
+        return ac
+    }
+}, numeros[0])
+
+// Menor número
+
+const menor = numeros.reduce((ac, at) => {
+    if (at < ac) {
+        return at
+    } else {
+        return ac
+    }
+}, numeros[0])
+
+// Produto mais caro
+
+const produtocaro = produtos.reduce((ac, at) => {
+    if (at.preco > ac.preco) {
+        return at
+    } else {
+        return ac
+    }
+})
+
+// Produto mais barato da categoria Jogos
+
+const games = produtos.filter(p => p.categoria === "Jogos")
+
+const gamesmaisbarato = games.reduce((ac, at) => {
+    if (at.preco < ac.preco) {
+        return at
+    } else {
+        return ac
+    }
+})
+
+console.log("Soma: ", soma)
+console.log("Maior: ", maior)
+console.log("Menor: ", menor)
+console.log("Mais caro: ", produtocaro.nome)
+console.log("Mais barato de Jogos: ", gamesmaisbarato.nome)
