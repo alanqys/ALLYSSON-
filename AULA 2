@@ -32,7 +32,7 @@ const nomesADS = alunos
 
 console.log(nomesADS);
 
-// 2. Nomes e médias dos alunos de ADS (sem toFixed/Number confuso)
+// 2. Nomes e médias dos alunos de ADS
 const mediasADS = alunos
   .filter(aluno => aluno.curso === "ADS")
   .map(aluno => {
@@ -45,21 +45,21 @@ const mediasADS = alunos
 
 console.log(mediasADS);
 
-// 3. Melhor aluno geral (com IF/ELSE tradicional em vez de ternário)
+// 3. Melhor aluno geral
 const melhorAluno = alunos.reduce((melhor, atual) => {
   const mediaAtual = calcularMedia(atual.notas);
   const mediaMelhor = calcularMedia(melhor.notas);
 
   if (mediaAtual > mediaMelhor) {
-    return atual; // Se a média do concorrente for maior, ele assume o topo
+    return atual; 
   } else {
-    return melhor; // Senão, mantém quem já estava na liderança
+    return melhor; 
   }
 });
 
 console.log(melhorAluno.nome);
 
-// 4. Melhor aluno do curso de ADS (com IF/ELSE)
+// 4. Melhor aluno do curso de ADS
 const alunosADS = alunos.filter(aluno => aluno.curso === "ADS");
 
 const melhorADS = alunosADS.reduce((melhor, atual) => {
@@ -75,12 +75,12 @@ const melhorADS = alunosADS.reduce((melhor, atual) => {
 
 console.log(melhorADS.nome);
 
-// 5. Aluno mais jovem de Engenharia (com IF/ELSE)
+// 5. Aluno mais jovem de Engenharia
 const maisJovemEng = alunos
   .filter(aluno => aluno.curso === "Engenharia")
   .reduce((maisJovem, atual) => {
     if (atual.idade < maisJovem.idade) {
-      return atual; // Se a idade for menor, vira o novo mais jovem
+      return atual;
     } else {
       return maisJovem;
     }
@@ -97,7 +97,7 @@ const mediaGeralADS = totalMediasADS / alunosADS.length;
 
 console.log(mediaGeralADS);
 
-// 7. Nomes e status dos alunos (com IF / ELSE IF / ELSE limpo)
+// 7. Nomes e status dos alunos
 const statusAlunos = alunos.map(aluno => {
   const media = calcularMedia(aluno.notas);
   let status = "";
