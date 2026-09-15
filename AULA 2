@@ -19,7 +19,6 @@ const alunos = [
   }
 ];
 
-// Função auxiliar modular para reaproveitar o cálculo da média
 const calcularMedia = (notas) => {
   const soma = notas.reduce((acc, nota) => acc + nota, 0);
   return soma / notas.length;
